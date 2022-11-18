@@ -1,0 +1,190 @@
+/* FONT VARIABLES */
+@font-face {
+  font-family: "Poppins";
+  font-weight: 200;
+  font-display: swap;
+  src: url(fonts/poppins-extra_light.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/poppins-light.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/poppins-regular.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/poppins-medium.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/poppins-semi_bold.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/poppins-bold.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-display: swap;
+  src: url(fonts/poppins-extra_bold.woff2);
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 900;
+  font-display: swap;
+  src: url(fonts/poppins-black.woff2);
+}
+
+:root {
+  --red-color: #ec000c;
+  --light-red: #fc6767;
+  --gray-color: #a1a1a1;
+  --background: #f6c9ff;
+  --body-font: 10px "Poppins";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font: var(--body-font);
+}
+body {
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  background-color: var(--background);
+}
+.form {
+  position: relative;
+  max-width: 40rem;
+  padding: 10rem 0;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.1);
+  isolation: isolate;
+}
+.form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+  background: linear-gradient(to left, var(--light-red), var(--red-color));
+  border-radius: 1rem 1rem 100% 100%;
+  z-index: -1;
+}
+.form__title {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+}
+.form > form {
+  padding: 2.5rem;
+  background-color: inherit;
+}
+.form__input {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  margin: 0 auto;
+}
+.form__input > i {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: var(--light-red);
+}
+.form__input input {
+  position: relative;
+  width: 100%;
+  font: inherit;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border: none;
+  outline: none;
+}
+.form__input .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 1px;
+}
+.form__input .bar::before {
+  content: "";
+  position: absolute;
+  background-color: var(--light-red);
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.form__input > input:focus + .bar::before {
+  transform: scaleX(1);
+}
+.form__button {
+  display: block;
+  margin: 2.5rem auto 3rem;
+  padding: 1rem 5rem;
+  background: linear-gradient(to left, var(--light-red), var(--red-color));
+  color: #fff;
+  font: inherit;
+  outline: none;
+  border: 0.5px solid #fff;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+.form__button:hover {
+  background: linear-gradient(to right, var(--light-red), var(--red-color));
+}
+.form__switch {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--gray-color);
+}
+.form__switch a {
+  text-decoration: none;
+  color: var(--light-red);
+}
+.form__switch a:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 43.75em) {
+  .form::before {
+    height: 30rem;
+  }
+  .form__title {
+    left: 10rem;
+    transform: none;
+  }
+  .form > form {
+    transform: translateX(10rem);
+    border-radius: inherit;
+    box-shadow: inherit;
+  }
+}
